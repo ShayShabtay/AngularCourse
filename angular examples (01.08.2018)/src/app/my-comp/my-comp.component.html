@@ -1,0 +1,53 @@
+<!-- interpolation (JS expression)-->
+<div class="red-div">
+    <h4>name: {{name}}</h4>
+    <h5>Hi, I'm {{false ? name : 'React'}}</h5>
+</div>
+
+<div>
+    <!-- property binding -->
+    <input type="text" [value]="name" #myInput>
+</div>
+
+<div>
+    <!-- safe navigation opertaor -->
+    <input type="text" [value]="person?.name">
+</div>
+
+<div>
+    <!-- template variables -->
+    <input type="text" [value]="name" #myInput>
+    <button (click)="onInputClick(myInput)">Log the template variable</button>
+    <button (click)="printData(myInput.value)">Log the value</button>
+</div>
+
+<div>
+    <!-- event binding -->
+    <button (click)="onClick($event)" (mouseenter)="printData($event)">Click !</button>
+</div>
+
+<!-- class binding -->
+<div [class.red-div]="applyRedDivStyle">
+    dynamic class
+</div>
+
+<!-- style binding -->
+<div [style.color]="divColor">
+    dynamic style
+</div>
+
+<div>
+    two way data binding
+    <div>
+        <input type="number" [value]='person.age' (input)="person.age=ageElem.value" #ageElem>
+    </div>
+    {{person.age}}
+</div>
+
+<div>
+    two way data binding with ngModel
+    <div>
+        <input type="number" [(ngModel)]="person.age">
+    </div>
+    {{person.age}}
+</div>

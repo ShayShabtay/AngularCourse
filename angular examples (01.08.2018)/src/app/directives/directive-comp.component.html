@@ -1,0 +1,18 @@
+<h3>ngClass:</h3>
+<div [ngClass]="{'myClass': colorCondition, 'myOtherClass': !colorCondition}">
+    ngClass
+</div>
+
+<button (click)="colorCondition = !colorCondition">Change</button>
+
+<div *ngIf="colorCondition">
+    <h4>{{person.name}}</h4>
+    <span>{{person.age}}</span>
+</div>
+
+<ng-container *ngIf="colorCondition">
+    <div *ngFor="let per of people; let i = index">
+        <span>{{per.name}}</span>
+        <button (click)="printPerson(per, i)">Print</button>
+    </div>
+</ng-container>
